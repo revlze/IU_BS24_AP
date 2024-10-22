@@ -1,1 +1,1 @@
-# IU Codeforces AGLA BS24
+# IU Codeforces ALGO&PROG BS24
