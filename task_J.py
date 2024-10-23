@@ -3,7 +3,7 @@ def sort(a, n):
   def sum_string(a):
     return sum(map(int, str(a)))
   def merge(l, h):
-    if h <= l + 1 :
+    if h - l <= 1:
       return a
     m = (l + h) // 2
     merge(l, m)
@@ -20,10 +20,19 @@ def sort(a, n):
         t[k] = a[j]
         j += 1
       k += 1
-    a[l:h] = t[l:k] + a[i:m] + a[j:h]
+    while i < m:
+      t[k] = a[i]
+      i += 1
+      k += 1
+    while j < h:
+      t[k] = a[j]
+      j += 1
+      k += 1
+    a[l:h] = t[l:h]
     return a
   return merge(0, n)
 
 n = int(input())
 a = list(map(int,input().split()))
-print(*sort(a, n))
+# print(*sort(a, n))
+print(*sorted(a, key=lambda x: [sum(map(int, str(x))), x]))
